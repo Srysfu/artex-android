@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.artex.mobile"
+    android:versionCode="335"
+    android:versionName="1.9.3-green">
+
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="27" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 桌面长按图标 → 扫描（ScanActivity 用相机 + zxing 解二维码） -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 备份写到「下载/ARTEX 备份」。targetSdk=27 时系统仍按旧规则要求这个
+         权限（MediaStore 免权限写入要 targetSdk>=29）。限定 maxSdkVersion=28，
+         在 Android 10+ 上申请不到也不影响，那边走 MediaStore。 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <application
+        android:label="ARTEX"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:hardwareAccelerated="true">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 桌面长按菜单：扫描 -->
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name=".ScanActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PanelActivity"
+            android:exported="false"
+            android:theme="@style/PanelTheme" />
+    </application>
+</manifest>

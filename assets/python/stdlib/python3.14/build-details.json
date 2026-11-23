@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "base_prefix": "/data/user/0/com.artex.mobile/p",
+  "base_interpreter": "/data/user/0/com.artex.mobile/p/bin/python3.14",
+  "platform": "android-24-arm64_v8a",
+  "language": {
+    "version": "3.14",
+    "version_info": {
+      "major": 3,
+      "minor": 14,
+      "micro": 10,
+      "releaselevel": "final",
+      "serial": 0
+    }
+  },
+  "implementation": {
+    "name": "cpython",
+    "cache_tag": "cpython-314",
+    "version": {
+      "major": 3,
+      "minor": 14,
+      "micro": 10,
+      "releaselevel": "final",
+      "serial": 0
+    },
+    "hexversion": 51251952,
+    "_multiarch": "aarch64-linux-android",
+    "supports_isolated_interpreters": true
+  },
+  "abi": {
+    "flags": [],
+    "extension_suffix": ".cpython-314-aarch64-linux-android.so",
+    "stable_abi_suffix": ".abi3.so"
+  },
+  "suffixes": {
+    "source": [
+      ".py"
+    ],
+    "bytecode": [
+      ".pyc"
+    ],
+    "extensions": [
+      ".cpython-314-x86_64-linux-gnu.so",
+      ".abi3.so",
+      ".so"
+    ]
+  },
+  "libpython": {
+    "dynamic": "/data/user/0/com.artex.mobile/p/lib/libpython3.14.so",
+    "dynamic_stableabi": "/data/user/0/com.artex.mobile/p/lib/libpython3.so",
+    "link_extensions": true,
+    "static": "/data/user/0/com.artex.mobile/p/lib/python3.14/config-3.14-aarch64-linux-android/libpython3.14.a"
+  },
+  "c_api": {
+    "headers": "/data/user/0/com.artex.mobile/p/include/python3.14",
+    "pkgconfig_path": "/data/user/0/com.artex.mobile/p/lib/pkgconfig"
+  }
+}

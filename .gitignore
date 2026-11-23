@@ -1,0 +1,38 @@
+# 构建产物
+dist/
+*.apk
+*.apk.idsig
+build/
+
+# 组装用资产入库，保证 clone 下来就能直接构建。
+# 之前是排除的（体积大），但那样别人拿到源码还得自己跑 prepare 脚本
+# 去拼 PG / 后端二进制，等于不可构建。
+
+# 二进制与库
+/artex
+
+# assets 下的 .so 全部入库。
+# 之前是 *.so 全忽略、只给 bash 和 python 开例外，漏掉了 pg/lib（52MB，
+# 含 libicudata.so.79 这类必需的 ICU 库）和 python 的 lib-dynload。
+# 结果是别人 clone 下来构建出的 APK 缺 147 个库，装上直接跑不起来。
+!assets/**/*.so
+!assets/**/*.so.*
+
+# 签名密钥一律不入库。仓库是公开的，密钥泄漏之后任何人都能签出
+# 看起来合法的"官方更新包"。
+*.jks
+*.keystore
+keys/
+!keys/.gitkeep
+
+# 编译中间产物
+*.class
+*.dex
+R.java
+
+# 依赖
+node_modules/
+
+# 系统
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  注意：MIUI 长按菜单显示的是 shortcutLongLabel（不是 ShortLabel），
+  所以两个 label 都写成两字，否则会显示成长句。
+-->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="scan"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_scan"
+        android:shortcutShortLabel="@string/shortcut_scan_short"
+        android:shortcutLongLabel="@string/shortcut_scan_long">
+        <intent
+            android:action="com.artex.mobile.action.SCAN"
+            android:targetPackage="com.artex.mobile"
+            android:targetClass="com.artex.mobile.MainActivity" />
+    </shortcut>
+</shortcuts>
